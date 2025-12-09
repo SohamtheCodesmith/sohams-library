@@ -1,5 +1,4 @@
-import { useState } from "react";
-import booksData from "./assets/books.json";
+import { useEffect, useState } from "react";
 import type { Book } from "./types";
 
 // Loading Components
@@ -14,8 +13,18 @@ export default function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
+  const [booksData, setBooks] = useState<Book[]>([]);
+
+  
+  useEffect(() => {
+  fetch("http://localhost:5000/books")
+    .then(res => res.json())
+    .then(data => setBooks(data))
+    .catch(err => console.error("Failed to fetch books:", err));
+  }, []);
 
   const genres = Array.from(new Set(booksData.map((b) => b.genre)));
+
 
   let filteredBooks: Book[] = booksData.filter((book) => {
     const matchesQuery = book.title.toLowerCase().includes(query.toLowerCase());

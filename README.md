@@ -17,7 +17,7 @@ This project is actively maintained and expanded as part of my 2025 AI studies.
 
 * Clean, modular React components
 * Migration from a static JSON setup to a full backend
-* REST API design and state synchronization
+* REST API design and state synchronisation
 * MongoDB + Mongoose models for persistent storage
 * Real-world MERN app structure
 * Debugging + solving local environment issues

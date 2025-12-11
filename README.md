@@ -7,7 +7,7 @@ Originally a static JSON frontend, it has evolved into a **complete MERN applica
 ✔️ A backend powered by Express + MongoDB\
 ✔️ A clean React + TypeScript frontend\
 ✔️ A fully integrated **chat popup using LangChain**\
-✔️ Real database queries instead of hardcoded data\
+✔️ Real database queries instead of hardcoded data
 
 This project was actively maintained and expanded as part of my 2025 AI studies.
 

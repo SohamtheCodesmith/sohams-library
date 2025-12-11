@@ -35,3 +35,6 @@ out
 # Cache folders
 .cache
 .vite
+
+#reserve files
+reserve-files

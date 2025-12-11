@@ -19,7 +19,8 @@ This is an ongoing project, actively improved every week.
 * Incremental development, clean commits, and maintainable architecture
 
 ### **📷 Demo**
-![screenshot](screenshot.png)
+![screenshot 2](screenshot_1.png)
+![screenshot 2](screenshot_2.png)
 
 ---
 

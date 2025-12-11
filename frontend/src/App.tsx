@@ -5,6 +5,8 @@ import type { Book } from "./types";
 import Sidebar from "./components/Sidebar";
 import SearchBar from "./components/SearchBar";
 import BookGrid from "./components/BookGrid";
+import ChatPopup from "./components/ChatPopup";
+import ChatButton from "./components/ChatButton";
 
 export default function App() {
 
@@ -14,6 +16,7 @@ export default function App() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
   const [booksData, setBooks] = useState<Book[]>([]);
+  const [chatOpen, setChatOpen] = useState(false);
 
   
   useEffect(() => {
@@ -44,6 +47,7 @@ export default function App() {
   }
 
   return (
+    <>
     <div className={`container-fluid ${darkMode ? "bg-dark text-light" : ""}`}>
       {/* Navbar */}
       <nav className={`navbar ${darkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"}`}>
@@ -89,5 +93,8 @@ export default function App() {
         </main>
       </div>
     </div>
+    {!chatOpen && <ChatButton onClick={() => setChatOpen(true)} />}
+    {chatOpen && <ChatPopup onClose={() => setChatOpen(false)} />}
+    </>
   );
 }

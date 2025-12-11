@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import bookRoutes from "./routes/books.ts";
+import chatRouter from "./routes/chat";
 
 const app = express();
 app.use(cors());
@@ -14,6 +15,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/sohams_library")
 
 // Routes
 app.use("/books", bookRoutes);
+app.use("/chat", chatRouter);
 
 // Listen
 app.listen(5000, () => {

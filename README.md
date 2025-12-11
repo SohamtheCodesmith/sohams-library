@@ -1,26 +1,42 @@
-# **📚 Soham's Library**
+# **📚 Soham’s Library — MERN + AI Chatbot**
 
-A full-stack personal project built to sharpen my React skills and demonstrate my ability to design, refactor, and scale real-world applications.
+A full-stack project built to practice real-world engineering: scalable architecture, React state design, database integration, and LLM-based features.
 
-Originally a simple frontend powered by a static JSON file, **the project has now been upgraded into a complete MERN-style system** with a dedicated backend, live MongoDB database, API routing, and component-driven UI.
+Originally a static JSON frontend, it has evolved into a **complete MERN application** with:
 
-This is an ongoing project, actively improved every week.
+✔️ A backend powered by Express + MongoDB
+✔️ A clean React + TypeScript frontend
+✔️ A fully integrated **chat popup using LangChain**
+✔️ Real database queries instead of hardcoded data
+
+This project is actively maintained and expanded as part of my 2025 AI studies.
 
 ---
 
 ## **🔥 What This Project Demonstrates**
 
-* Building clean, reusable, modular React components
-* Migrating from static assets to a proper backend
-* Designing REST APIs and integrating them with frontend state
-* Using Mongoose + MongoDB for real persistent storage
-* Real-world application structure (frontend + backend separation)
-* Debugging, environment setup, and solving cross-platform issues
-* Incremental development, clean commits, and maintainable architecture
+* Clean, modular React components
+* Migration from a static JSON setup to a full backend
+* REST API design and state synchronization
+* MongoDB + Mongoose models for persistent storage
+* Real-world MERN app structure
+* Debugging + solving local environment issues
+* LLM integration using **LangChain**
+* Local inference pipelines with a small LLM model
 
-### **📷 Demo**
-![screenshot 2](screenshot_1.png)
+---
+
+## **📷 Demo**
+
+### App View
+
+![screenshot 1](screenshot_1.png)
+
+### Chat Popup
+
 ![screenshot 2](screenshot_2.png)
+
+The chat window can answer basic questions about the library and interact with the user's book collection.
 
 ---
 
@@ -28,21 +44,38 @@ This is an ongoing project, actively improved every week.
 
 ### **Frontend**
 
-* Browse a real database-backed collection of books
-* Filter by genre
-* Search books by title
+* View all books stored in the MongoDB database
+* Search by title
 * Sort A–Z / Z–A
+* Filter by genre
 * Collapsible sidebar
-* Dark mode toggle
-* Fully responsive layout (Bootstrap)
+* Fully responsive layout
+* Built with React + Vite + TypeScript
+* **Interactive chat popup (LangChain-powered)**
 
 ### **Backend**
 
-* Express server running on `localhost:5000`
-* MongoDB database storing all books
-* Mongoose schema + model
-* `/books` API route with `GET` and `POST` support
-* Real-time sync between frontend and backend (no static JSON anymore)
+* Express server on `localhost:5000`
+* MongoDB database with a Book schema
+* `/books` API with GET and POST
+* `/book/:id` API route (title, author, synopsis)
+* TypeScript backend with ts-node-dev
+* Clean controller/model structure
+
+---
+
+## **🤖 AI Integration (New)**
+
+A built-in chat popup connects to a local LLM via **LangChain**, enabling:
+
+* Book Q&A
+* Summaries
+* Genre explanations
+* Conversational queries
+* Simple recommendations
+
+The system is designed for full tool integration, although current limitations of the locally running model prevent direct API calls from the LLM.
+The architecture remains **future-ready**.
 
 ---
 
@@ -50,80 +83,67 @@ This is an ongoing project, actively improved every week.
 
 ```
 sohams-library/
-  frontend/   → React + Vite + TS
+  frontend/   → React + Vite + TypeScript
   backend/    → Node + Express + Mongoose
 ```
 
-The frontend now fetches all book data **from MongoDB**, not from local JSON.
-
-The backend is fully functional, with:
-
-* API routes
-* Controllers
-* Mongoose models
-* TypeScript runtime via ts-node-dev
+The frontend fetches all data dynamically from MongoDB.
+The backend handles routing, data validation, and AI-related endpoints.
 
 ---
 
-## **📈 Roadmap (Next 1–2 Weeks)**
-
-These milestones are already planned and in progress:
+## **📈 Roadmap**
 
 ### **Frontend**
 
-* Modal to add new books
-* Image upload support
-* A “cart” feature
-* A “purchased” view
-* Multi-page support with React Router
+* Add-book modal
+* Image upload
+* Purchased view
+* Multi-page routing
+* Better chat styling + typing indicators
 
 ### **Backend**
 
-* Full CRUD (add/edit/delete)
-* API route for book uploads
-* User accounts and sessions (optional)
+* Full CRUD (edit + delete)
+* File upload support
+* User accounts (optional)
 
-### **AI Integration**
+### **AI**
 
-* **LangChain chatbot** integrated directly into the app
-
-  * Can answer book queries
-  * Summarise entries
-  * Search the database
-  * Possibly generate recommendations
-
-A lot more updates will be shipped rapidly — this is an actively evolving project.
+* Fully connected retrieval system
+* Proper API-augmented LLM (once model support is available)
+* Richer book recommendations
 
 ---
 
 ## **💻 Tech Stack**
 
-### **Frontend**
+### Frontend
 
-* React + TypeScript
+* React
+* TypeScript
 * Vite
-* Bootstrap 5
+* Bootstrap
 
-### **Backend**
+### Backend
 
 * Node.js
 * Express
 * MongoDB
 * Mongoose
-* TypeScript (via ts-node-dev)
+* TypeScript
+* ts-node-dev
 
-### **Tools**
+### AI
 
-* VSCode
-* MongoDB Compass
-* Git & GitHub
-* LangChain (upcoming)
+* LangChain
+* Local inference pipeline
 
 ---
 
 ## **📁 Getting Started**
 
-### **1. Clone the repository**
+### 1. Clone the repo
 
 ```bash
 git clone https://github.com/SohamtheCodesmith/sohams-library.git
@@ -133,55 +153,33 @@ git clone https://github.com/SohamtheCodesmith/sohams-library.git
 
 ## **🚀 Running the Project**
 
-### **Backend Setup (Required)**
-
-#### Install backend dependencies:
+### **Backend**
 
 ```bash
 cd backend
 npm install
-```
-
-#### Start MongoDB:
-
-* **If local:** ensure MongoDB service is running
-* **If using Compass:** open Compass
-* **If using Atlas:** update `mongoose.connect()` URI in `server.ts`
-
-#### Run backend server:
-
-```bash
 npm run dev
 ```
 
-Backend will start on:
-`http://localhost:5000`
+Backend runs on `http://localhost:5000`.
+
+Ensure MongoDB is running locally or update the connection URI for Atlas.
 
 ---
 
-### **Frontend Setup**
-
-#### Install frontend dependencies:
+### **Frontend**
 
 ```bash
-cd ../frontend
+cd frontend
 npm install
-```
-
-#### Run Vite:
-
-```bash
 npm run dev
 ```
 
-Frontend will start on:
-`http://localhost:5173`
+Frontend runs on `http://localhost:5173`.
 
 ---
 
 ## **📌 Notes**
 
-This project is under **active development**, and major new features (including a backend chatbot) are being added over the next few days.
-
-If you're reviewing this project:
-➡️ You’re seeing it mid-evolution — and the pace of development is very rapid.
+This project evolves continuously, especially the chatbot system.
+New features, improvements, and architectural upgrades are added periodically.
